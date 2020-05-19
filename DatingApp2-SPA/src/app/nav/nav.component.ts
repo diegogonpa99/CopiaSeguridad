@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,27 +10,26 @@ import { AuthService } from '../_services/auth.service';
 export class NavComponent implements OnInit {
   model: any = {};
 
-  constructor(private authServices: AuthService) { }
+  constructor(public authServices: AuthService, private alertyfi: AlertifyService) { }
 
   ngOnInit() {
   }
 
   login(){
     this.authServices.login(this.model).subscribe(next => {
-      console.log('Logeado con exito');
+      this.alertyfi.success('Logeado con exito');
     }, error => {
-      console.log('Logeo fallido');
+      this.alertyfi.error(error);
     });
   }
 
   loggedIn(){
-    const token = localStorage.getItem('token');
-    return !!token;
+    return this.authServices.loggedIn();
   }
 
   logout(){
     localStorage.removeItem('token');
-    console.log('Sesion cerrada');
+    this.alertyfi.message('Sesion cerrada');
   }
 
 }
