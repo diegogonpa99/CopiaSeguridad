@@ -32,6 +32,9 @@ export class NavComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authServices.decodedToken = null;
+    this.authServices.currentUser = null;
     this.alertyfi.message('Sesion cerrada');
     this.router.navigate(['']);
   }

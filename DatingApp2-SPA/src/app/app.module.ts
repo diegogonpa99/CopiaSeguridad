@@ -10,6 +10,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 /* import { NgxGalleryModule } from 'ngx-gallery'; */
 
 import { AppComponent } from './app.component';
@@ -70,7 +72,9 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
+      PaginationModule.forRoot(),
       TabsModule.forRoot(),
+      ButtonsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       BsDatepickerModule.forRoot(),
      /*  NgxGalleryModule, */
