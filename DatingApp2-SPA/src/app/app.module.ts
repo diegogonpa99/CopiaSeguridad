@@ -31,6 +31,8 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ListResolver } from './_resolvers/list.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 export function tokenGetter() {
@@ -64,7 +66,8 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      TimeAgoExtendsPipe
+      TimeAgoExtendsPipe,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -94,7 +97,8 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       /* { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig } */
       MemberEditResolver,
       PreventUnsavedChanges,
-      ListResolver
+      ListResolver,
+      MessagesResolver
    ],
    bootstrap: [
       AppComponent
