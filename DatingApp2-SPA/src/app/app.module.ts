@@ -12,6 +12,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { FileUploadModule } from 'ng2-file-upload';
 /* import { NgxGalleryModule } from 'ngx-gallery'; */
 
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { ListResolver } from './_resolvers/list.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 
 export function tokenGetter() {
@@ -66,6 +68,7 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
+      PhotoEditorComponent,
       TimeAgoExtendsPipe,
       MemberMessagesComponent
    ],
@@ -82,6 +85,7 @@ export class TimeAgoExtendsPipe extends TimeAgoPipe {}
       RouterModule.forRoot(appRoutes),
       BsDatepickerModule.forRoot(),
      /*  NgxGalleryModule, */
+      FileUploadModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
